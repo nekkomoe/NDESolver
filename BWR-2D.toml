@@ -1,0 +1,79 @@
+title = "LRA BWR-2D"
+dimension = "2D"
+type = "stable"
+
+[material]
+total = 5 # total number of materials
+Bz_sqr = 1E-4
+[material.mat_1]
+d1 = 1.255
+d2 = 0.211
+a1 = 0.008252
+a2 = 0.1003
+nf1 = 0.004602
+nf2 = 0.1091
+s12 = 0.02533
+[material.mat_2]
+d1 = 1.268
+d2 = 0.1902
+a1 = 0.007181
+a2 = 0.07047
+nf1 = 0.004609
+nf2 = 0.08675
+s12 = 0.02767
+[material.mat_3]
+d1 = 1.259
+d2 = 0.2091
+a1 = 0.008002
+a2 = 0.08344
+nf1 = 0.004663
+nf2 = 0.1021
+s12 = 0.02617
+[material.mat_4]
+d1 = 1.259
+d2 = 0.2091
+a1 = 0.008002
+a2 = 0.073324
+nf1 = 0.004663
+nf2 = 0.1012
+s12 = 0.02617
+[material.mat_5]
+d1 = 1.257
+d2 = 0.1592
+a1 = 0.0006034
+a2 = 0.01911
+nf1 = 0.0
+nf2 = 0.0
+s12 = 0.04754
+
+[geometry]
+lx = 165.0
+ly = 165.0
+gx = 15.0 # 15cm per grid(x)
+gy = 15.0 # 15cm per grid(y)
+nx = 11
+ny = 11
+# (row, col) -> (i, j) -> (x, y)
+content = """
+2 1 1 1 1 2 2 3 3 5 5
+1 1 1 1 1 1 1 3 3 5 5
+1 1 1 1 1 1 1 3 3 5 5
+1 1 1 1 1 1 1 3 3 5 5
+1 1 1 1 1 1 1 3 3 5 5
+2 1 1 1 1 2 2 3 3 5 5
+2 1 1 1 1 2 2 3 3 5 5
+3 3 3 3 3 3 3 4 5 5 5
+3 3 3 3 3 3 3 5 5 5 5
+5 5 5 5 5 5 5 5 5 5 5
+5 5 5 5 5 5 5 5 5 5 5"""
+
+
+[boundary]
+lef = "reflective"
+rig = "vacuum"
+top = "vacuum"
+bot = "reflective"
+ext_dist = 0.0 # φ=0
+
+[solution]
+k_eff = 0.99619 # reference k_eff
